@@ -6,11 +6,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.MenuItem;
 
+import com.example.assigment_tkgd.fragments.Chifragment;
+import com.example.assigment_tkgd.fragments.Thongkefragment;
+import com.example.assigment_tkgd.fragments.Thufragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
@@ -31,6 +36,36 @@ public class MainActivity extends AppCompatActivity {
         ActionBar actionBar = getSupportActionBar();
         actionBar.setHomeAsUpIndicator(R.drawable.ic_menu);
         actionBar.setDisplayHomeAsUpEnabled(true);
+
+        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                Fragment fragment ;
+                switch (item.getItemId()){
+                    case R.id.mThu:
+                        fragment = new Thufragment();
+                        break;
+                    case R.id.mChi:
+                        fragment = new Chifragment();
+                        break;
+                    case R.id.mthongKe:
+                        fragment = new Thongkefragment();
+                    default:
+                        fragment = new Thufragment();
+                        break;
+                }
+
+                fragmentManager
+                        .beginTransaction()
+                        .replace(R.id.linearLayout, fragment)
+                        .commit();
+
+                drawerLayout.closeDrawer(GravityCompat.START);
+                setTitle(item.getTitle());
+                return false;
+            }
+        });
     }
 
     @Override
