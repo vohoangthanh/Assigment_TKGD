@@ -1,14 +1,14 @@
 package com.example.assigment_tkgd.models;
 
-public class Loai {
+public class LoaiThu {
     private Integer maloai;
     private String name;
     private String status;
 
-    public Loai() {
+    public LoaiThu() {
     }
 
-    public Loai(Integer maloai, String name, String status) {
+    public LoaiThu(Integer maloai, String name, String status) {
         this.maloai = maloai;
         this.name = name;
         this.status = status;
