@@ -22,7 +22,7 @@ public class KhoanThuChiDao {
     public ArrayList<LoaiThu> getDSLoai(String loai) {
         ArrayList<LoaiThu> list = new ArrayList<>();
         SQLiteDatabase db = khoanThuChiDatabase.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM LOAITHUS", null);
+        Cursor cursor = db.rawQuery("SELECT*FROM LOAITHUS", null);
 
 
         if (cursor.getCount() > 0) {
