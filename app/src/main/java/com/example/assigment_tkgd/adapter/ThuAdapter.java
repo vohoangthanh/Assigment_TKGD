@@ -5,8 +5,8 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentActivity;
 import androidx.viewpager2.adapter.FragmentStateAdapter;
 
-import com.example.assigment_tkgd.fragments.KhoanThufragment;
-import com.example.assigment_tkgd.fragments.LoaiThufragment;
+import com.example.assigment_tkgd.fragments.Khoanfragment;
+import com.example.assigment_tkgd.fragments.ThuChiFragment;
 
 public class ThuAdapter extends FragmentStateAdapter {
     public ThuAdapter(@NonNull FragmentActivity fragmentActivity) {
@@ -17,8 +17,8 @@ public class ThuAdapter extends FragmentStateAdapter {
     @Override
     public Fragment createFragment(int position) {
          if (position == 0)
-             return new LoaiThufragment();
-         return new KhoanThufragment();
+             return new ThuChiFragment();
+         return new Khoanfragment();
 
     }
 

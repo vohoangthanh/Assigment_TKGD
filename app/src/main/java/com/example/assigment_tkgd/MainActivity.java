@@ -10,19 +10,23 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
 import android.os.Bundle;
-import android.view.Gravity;
-import android.view.MenuItem;
 
-import com.example.assigment_tkgd.fragments.Chifragment;
+import android.view.MenuItem;
+import android.widget.LinearLayout;
+
+
+
 import com.example.assigment_tkgd.fragments.Thongkefragment;
-import com.example.assigment_tkgd.fragments.Thufragment;
+
+import com.example.assigment_tkgd.fragments.ThuChiFragment;
 import com.google.android.material.navigation.NavigationView;
 
 public class MainActivity extends AppCompatActivity {
 
-    Toolbar toolbar;
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
+    private Toolbar toolbar;
+    private DrawerLayout drawerLayout;
+    private NavigationView navigationView;
+    private LinearLayout linearLayout;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
 
         toolbar = findViewById(R.id.toolbar);
         drawerLayout = findViewById(R.id.drawerLayout);
+        linearLayout = findViewById(R.id.linearLayout);
         navigationView = findViewById(R.id.naviGationView);
 
         setSupportActionBar(toolbar);
@@ -40,22 +45,27 @@ public class MainActivity extends AppCompatActivity {
         navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                FragmentManager fragmentManager = getSupportFragmentManager();
-                Fragment fragment ;
+                Fragment fragment = null;
+                Bundle bundle = new Bundle();
                 switch (item.getItemId()){
                     case R.id.mThu:
-                        fragment = new Thufragment();
+                       fragment = new ThuChiFragment();
+                        bundle.putInt("trangthai",0);
+                        fragment.setArguments(bundle);
                         break;
                     case R.id.mChi:
-                        fragment = new Chifragment();
+                        fragment = new ThuChiFragment();
+                        bundle.putInt("trangthai",0);
+                        fragment.setArguments(bundle);
                         break;
                     case R.id.mthongKe:
                         fragment = new Thongkefragment();
-                    default:
-                        fragment = new Thufragment();
+                    case R.id.mgioiThieu:
+                        break;
+                    case R.id.mthoat:
                         break;
                 }
-
+                FragmentManager fragmentManager = getSupportFragmentManager();
                 fragmentManager
                         .beginTransaction()
                         .replace(R.id.linearLayout, fragment)

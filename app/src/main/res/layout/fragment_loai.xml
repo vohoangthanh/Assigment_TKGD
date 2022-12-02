@@ -4,13 +4,13 @@
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
-    <ListView
-        android:id="@+id/listViewLoaiThu"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycleLoai"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
-        app:layout_anchor="@id/listViewLoaiThu"
+        app:layout_anchor="@id/recycleLoai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add"

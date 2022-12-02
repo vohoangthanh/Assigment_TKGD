@@ -1,42 +1,40 @@
 package com.example.assigment_tkgd.models;
 
 public class LoaiThu {
-    private Integer maloai;
-    private String name;
-    private String status;
+    private Integer idLoai;
+    private String tenLoai;
+    private int trangthai;
 
     public LoaiThu() {
     }
 
-    public LoaiThu(Integer maloai, String name, String status) {
-        this.maloai = maloai;
-        this.name = name;
-        this.status = status;
+    public LoaiThu(Integer idLoai, String tenLoai, int trangthai) {
+        this.idLoai = idLoai;
+        this.tenLoai = tenLoai;
+        this.trangthai = trangthai;
     }
 
-    public Integer getMaloai() {
-        return maloai;
+    public Integer getIdLoai() {
+        return idLoai;
     }
 
-    public void setMaloai(Integer maloai) {
-        this.maloai = maloai;
+    public void setIdLoai(Integer idLoai) {
+        this.idLoai = idLoai;
     }
 
-    public String getName() {
-        return name;
+    public String getTenLoai() {
+        return tenLoai;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTenLoai(String tenLoai) {
+        this.tenLoai = tenLoai;
     }
 
-    public String getStatus() {
-        return status;
+    public int getTrangthai() {
+        return trangthai;
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public void setTrangthai(int trangthai) {
+        this.trangthai = trangthai;
     }
-
-
 }
