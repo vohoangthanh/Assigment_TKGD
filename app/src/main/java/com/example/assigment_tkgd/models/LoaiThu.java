@@ -5,11 +5,14 @@ public class LoaiThu {
     private String tenLoai;
     private int trangthai;
 
-    public LoaiThu() {
-    }
-
     public LoaiThu(Integer idLoai, String tenLoai, int trangthai) {
         this.idLoai = idLoai;
+        this.tenLoai = tenLoai;
+        this.trangthai = trangthai;
+    }
+
+
+    public LoaiThu(String tenLoai, int trangthai) {
         this.tenLoai = tenLoai;
         this.trangthai = trangthai;
     }

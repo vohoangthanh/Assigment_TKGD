@@ -18,11 +18,12 @@ public class LoaiDAO {
         khoanThuChiDatabase = new KhoanThuChiDatabase(context);
     }
 
-    // lấy danh sách Loại THU/CHI
-    public ArrayList<LoaiThu> getDSLoai(int trangthai) {
+    // lấy danh sách Loại theo trang thai
+    // 0: thu -  1:chi
+    public ArrayList<LoaiThu> LayDSLoai(int trangthai) {
         ArrayList<LoaiThu> list = new ArrayList<>();
         SQLiteDatabase db = khoanThuChiDatabase.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM LOAITHUS WHERE TRANGTHAI = ?", new String[]{String.valueOf(trangthai)});
+        Cursor cursor = db.rawQuery("SELECT * FROM LOAI WHERE TRANGTHAI = ?", new String[]{String.valueOf(trangthai)});
 
 
         if (cursor.getCount() > 0) {
@@ -37,28 +38,26 @@ public class LoaiDAO {
     //Thêm loại thu chi Insert
     public boolean inSert(LoaiThu loai) {
         SQLiteDatabase db = khoanThuChiDatabase.getWritableDatabase(); //viết insert
-            ContentValues values = new ContentValues();
-            values.put("MALOAI", loai.getIdLoai());
-            values.put("TEN", loai.getTenLoai());
-            values.put("TRANGTHAI", loai.getTrangthai());
-            long rows = db.insertOrThrow("LOAITHUS", null, values);
-            if (rows == -1)
-                return false;
-            return true;
+        ContentValues values = new ContentValues();
+        values.put("TEN", loai.getTenLoai());
+        values.put("TRANGTHAI", loai.getTrangthai());
+        long rows = db.insert("LOAI", null, values);
+        if (rows == -1)
+            return false;
+        return true;
     }
 
     // cập nhật Update
     public Boolean update(LoaiThu loai) {
 
         SQLiteDatabase db = khoanThuChiDatabase.getWritableDatabase(); //viết updtae
-            ContentValues values = new ContentValues();
-            values.put("TEN", loai.getTenLoai());
-            values.put("TRANGTHAI", loai.getTrangthai());
-            long rows = db.update("LOAITHUS", values, " MALOAI = ?", new String[]{String.valueOf(loai)});
+        ContentValues values = new ContentValues();
+        values.put("TEN", loai.getTenLoai());
+        values.put("TRANGTHAI", loai.getTrangthai());
+        long rows = db.update("LOAI", values, " MALOAI = ?", new String[]{String.valueOf(loai.getIdLoai())});
         if (rows == -1)
             return false;
         return true;
-
 
 
     }
@@ -67,8 +66,8 @@ public class LoaiDAO {
     public Boolean delete(Integer maloai) {
 
         SQLiteDatabase db = khoanThuChiDatabase.getWritableDatabase(); //viết updtae
-        db.beginTransaction();// bắt đầu tương tác database
-        long rows = db.delete("LOAITHUS", " ID = ?", new String[]{String.valueOf(maloai)});
+
+        long rows = db.delete("LOAI", " MALOAI = ?", new String[]{String.valueOf(maloai)});
         if (rows == -1)
             return false;
         return true;

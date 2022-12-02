@@ -55,11 +55,12 @@ public class MainActivity extends AppCompatActivity {
                         break;
                     case R.id.mChi:
                         fragment = new ThuChiFragment();
-                        bundle.putInt("trangthai",0);
+                        bundle.putInt("trangthai",1);
                         fragment.setArguments(bundle);
                         break;
                     case R.id.mthongKe:
                         fragment = new Thongkefragment();
+                        break;
                     case R.id.mgioiThieu:
                         break;
                     case R.id.mthoat:
@@ -72,7 +73,6 @@ public class MainActivity extends AppCompatActivity {
                         .commit();
 
                 drawerLayout.closeDrawer(GravityCompat.START);
-                setTitle(item.getTitle());
                 return false;
             }
         });

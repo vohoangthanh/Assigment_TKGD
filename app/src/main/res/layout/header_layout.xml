@@ -2,13 +2,15 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="200dp"
-    android:background="@drawable/tim"
-    android:orientation="vertical">
+    android:background="#AAFFE7"
+    android:orientation="vertical"
+    android:gravity="center"
+    >
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_margin="60dp"
+        android:textColor="@color/black"
         android:text="Hoàng Thanh"
         android:textSize="20dp"
         />
