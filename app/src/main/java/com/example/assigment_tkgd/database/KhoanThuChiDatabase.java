@@ -7,7 +7,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 public class KhoanThuChiDatabase extends SQLiteOpenHelper {
 
     public KhoanThuChiDatabase(Context context) {
-        super(context, "KHOANTHUCHIDATABASE", null, 3);
+        super(context, "KHOANTHUCHIDATABASE", null, 4);
     }
 
     @Override
@@ -15,7 +15,7 @@ public class KhoanThuChiDatabase extends SQLiteOpenHelper {
         String sqlLoai = "CREATE TABLE  LOAI(MALOAI INTEGER PRIMARY KEY AUTOINCREMENT ,TEN TEXT ,TRANGTHAI INTEGER)";
         db.execSQL(sqlLoai);
 
-        String sqlThuChi = "CREATE TABLE  KHOAN(MAKHOAN INTEGER PRIMARY KEY AUTOINCREMENT ,TEN TEXT ,MALOAI INTEGER,TIEN INTEGER,NGAY TEXT,MALOAI INTEGER REFERENCES LOAI(MALOAI))";
+        String sqlThuChi = "CREATE TABLE  KHOAN(MAKHOAN INTEGER PRIMARY KEY AUTOINCREMENT ,TEN TEXT ,TIEN INTEGER,NGAY TEXT,MALOAI INTEGER REFERENCES LOAI(MALOAI))";
         db.execSQL(sqlThuChi);
 
         String dataLoai = "INSERT INTO LOAI VALUES (1, 'Mua sắm', 1),(2, 'Từ thiện', 1), (3, 'Xăng dầu', 1), (4, 'Lương', 0), (5, 'Thưởng', 0)";

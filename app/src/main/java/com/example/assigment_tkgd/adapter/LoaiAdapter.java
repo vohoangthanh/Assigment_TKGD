@@ -38,7 +38,7 @@ public class LoaiAdapter extends RecyclerView.Adapter<LoaiAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+        LayoutInflater inflater = ((Activity)context).getLayoutInflater();
         View view = inflater.inflate(R.layout.item_loai, parent, false);
         return new ViewHolder(view);
     }

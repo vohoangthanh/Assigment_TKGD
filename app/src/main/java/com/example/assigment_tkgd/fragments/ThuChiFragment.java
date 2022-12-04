@@ -43,11 +43,11 @@ public class ThuChiFragment extends Fragment {
                     if (trangthai == 0) {
                         tab.setText("Loại Thu");
                     } else {
-                        tab.setText("Loại Chi");
+                        tab.setText("Khoản Thu");
                     }
                 } else {
                     if (trangthai == 0) {
-                        tab.setText("Khoản Thu");
+                        tab.setText("Loại Chi");
                     } else {
                         tab.setText("Khoản Chi");
                     }
