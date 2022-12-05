@@ -1,7 +1,8 @@
-package com.example.assigment_tkgd.fragments;
+package com.example.assigment_tkgd.adapter;
 
+import android.app.Activity;
 import android.app.DatePickerDialog;
-import android.os.Bundle;
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,66 +10,108 @@ import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.SimpleAdapter;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
-import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.assigment_tkgd.R;
-import com.example.assigment_tkgd.adapter.KhoanAdapter;
 import com.example.assigment_tkgd.dao.KhoanDAO;
 import com.example.assigment_tkgd.dao.LoaiDAO;
 import com.example.assigment_tkgd.models.Khoan;
 import com.example.assigment_tkgd.models.LoaiThu;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 
-public class Khoanfragment extends Fragment {
-
-    private int trangThai;
-    private RecyclerView recyclerView;
-    private FloatingActionButton floatAdd;
+public class KhoanAdapter extends RecyclerView.Adapter<KhoanAdapter.ViewHolder> {
+    private Context context;
+    private ArrayList<Khoan> list;
     private KhoanDAO khoanDAO;
     private String idLoai;
+    private int trangThai;
 
-    @Nullable
-    @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_khoan, container, false);
-
-        recyclerView = view.findViewById(R.id.recycleKhoan);
-        floatAdd = view.findViewById(R.id.floatAdd);
-
-        Bundle bundle = getArguments();
-        trangThai = bundle.getInt("trangThai");
-
-        khoanDAO = new KhoanDAO(getContext());
-
-        getDS();
-
-        floatAdd.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                showDialog();
-            }
-        });
-        return view;
-
+    public KhoanAdapter(Context context, ArrayList<Khoan> list, KhoanDAO khoanDAO, int trangThai) {
+        this.context = context;
+        this.list = list;
+        this.khoanDAO = khoanDAO;
+        this.trangThai = trangThai;
     }
 
-    private void showDialog() {
-        AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
-        LayoutInflater inflater = getLayoutInflater();
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        LayoutInflater inflater = ((Activity) context).getLayoutInflater();
+        View view = inflater.inflate(R.layout.item_khoan, parent, false);
+
+        return new ViewHolder(view);
+    }
+
+    @Override
+    public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        holder.txtIdKhoan.setText(String.valueOf(list.get(position).getIdKhoan()));
+        holder.txtTenKhoan.setText(list.get(position).getTenKhoan());
+        holder.txtNgay.setText(list.get(position).getNgay());
+        holder.txtTien.setText(String.valueOf(list.get(position).getTien()));
+        holder.txtIDLoai.setText(String.valueOf(list.get(position).getIdLoai()));
+        holder.txtTenLoai.setText(list.get(position).getTenLoai());
+
+        holder.ivEdit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showDialog(list.get(holder.getAdapterPosition()));
+            }
+        });
+        holder.ivDele.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                boolean check = khoanDAO.xoaKhoan(list.get(holder.getAdapterPosition()).getIdKhoan());
+                if (check) {
+                    Toast.makeText(context, "Xóa Thành Công ", Toast.LENGTH_LONG).show();
+                    getDS();
+                }else {
+                    Toast.makeText(context, "Thất Bại ", Toast.LENGTH_LONG).show();
+                }
+            }
+        });
+    }
+
+    @Override
+    public int getItemCount() {
+        return list.size();
+    }
+
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        TextView txtIdKhoan, txtTenKhoan, txtNgay, txtTien, txtIDLoai, txtTenLoai;
+        ImageView ivIcon, ivEdit, ivDele;
+
+        public ViewHolder(@NonNull View itemView) {
+            super(itemView);
+
+            txtIdKhoan = itemView.findViewById(R.id.txtIdKhoan);
+            txtTenKhoan = itemView.findViewById(R.id.txtTenKhoan);
+            txtTien = itemView.findViewById(R.id.txtTien);
+            txtNgay = itemView.findViewById(R.id.txtNgay);
+            txtIDLoai = itemView.findViewById(R.id.txtIDLoai);
+            txtTenLoai = itemView.findViewById(R.id.txtTenLoai);
+            ivIcon = itemView.findViewById(R.id.ivIcon);
+            ivEdit = itemView.findViewById(R.id.ivEdit);
+            ivDele = itemView.findViewById(R.id.ivDele);
+
+
+        }
+    }
+
+    private void showDialog(Khoan khoan) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        LayoutInflater inflater = ((Activity) context).getLayoutInflater();
         View view = inflater.inflate(R.layout.dialog_khoan, null);
         builder.setView(view);
 
@@ -84,8 +127,14 @@ public class Khoanfragment extends Fragment {
         Button btnHuy = view.findViewById(R.id.btnHuy);
         TextView txtTieuDe = view.findViewById(R.id.txtTieuDe);
 
-        txtTieuDe.setText("Thêm Khoản Mới");
-        btnThemSua.setText("Thêm");
+        txtTieuDe.setText("Chỉnh Sữa Khoản Mới");
+        btnThemSua.setText("Chỉnh Sữa");
+
+        edtTenKhoan.setText(khoan.getTenKhoan());
+        edtTien.setText(String.valueOf(khoan.getTien()));
+        edtNgay.setText(khoan.getNgay());
+
+        LayDSSpiner(spnLoai, khoan.getIdLoai());
 
         edtNgay.setFocusable(false);
         edtNgay.setOnClickListener(new View.OnClickListener() {
@@ -98,7 +147,7 @@ public class Khoanfragment extends Fragment {
         spnLoai.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                HashMap<String , Object> hashMap = (HashMap<String, Object>) spnLoai.getSelectedItem();
+                HashMap<String, Object> hashMap = (HashMap<String, Object>) spnLoai.getSelectedItem();
                 idLoai = String.valueOf(hashMap.get("MALOAI"));
             }
 
@@ -122,26 +171,25 @@ public class Khoanfragment extends Fragment {
                 int tien = Integer.parseInt(edtTien.getText().toString());
                 String ngay = edtNgay.getText().toString();
                 int id = Integer.parseInt(idLoai); // id loai kieeur int
-                Khoan khoan = new Khoan(tenKhoan, tien, ngay, id);
-                boolean check = khoanDAO.themKhoan(khoan);
-                if (check){
-                    Toast.makeText(getContext(),"Thêm Thành Công",Toast.LENGTH_LONG).show();
+                Khoan Capnhatkhoan = new Khoan(khoan.getIdKhoan(), tenKhoan, tien, ngay, id);
+                boolean check = khoanDAO.capNhatKhoan(Capnhatkhoan);
+                if (check) {
+                    Toast.makeText(context, "Chỉnh Sữa Thành Công", Toast.LENGTH_LONG).show();
                     getDS();
-                }else {
-                    Toast.makeText(getContext(),"Thất bại",Toast.LENGTH_LONG).show();
+                } else {
+                    Toast.makeText(context, "Thất bại", Toast.LENGTH_LONG).show();
                 }
                 alertDialog.dismiss();
             }
         });
 
 
-        LayDSSpiner(spnLoai);
     }
 
     private void showDatePickerDilog(EditText edtNgay) {
         Calendar calendar = Calendar.getInstance();
         DatePickerDialog datePickerDialog = new DatePickerDialog(
-                getContext(),
+                context,
                 new DatePickerDialog.OnDateSetListener() {
                     @Override
                     public void onDateSet(DatePicker datePicker, int i, int i1, int i2) {
@@ -169,8 +217,10 @@ public class Khoanfragment extends Fragment {
 
     }
 
-    private void LayDSSpiner(Spinner spnLoai) {
-        LoaiDAO loaiDAO = new LoaiDAO(getContext());
+    private void LayDSSpiner(Spinner spnLoai, int idLoai) {
+        int vitri = -1;
+        int position = 0;
+        LoaiDAO loaiDAO = new LoaiDAO(context);
         ArrayList<LoaiThu> list = loaiDAO.LayDSLoai(trangThai);
         ArrayList<HashMap<String, Object>> listHM = new ArrayList<>();
         for (LoaiThu loai : list) {
@@ -178,23 +228,27 @@ public class Khoanfragment extends Fragment {
             hashMap.put("MALOAI", loai.getIdLoai());
             hashMap.put("TEN", loai.getTenLoai());
             listHM.add(hashMap);
+            if (loai.getIdLoai() == idLoai) {
+                vitri = position;
+            }
+            position++;
         }
         SimpleAdapter simpleAdapter = new SimpleAdapter(
-                getContext(),
+                context,
                 listHM,
                 android.R.layout.simple_list_item_1,
                 new String[]{"TEN"},
                 new int[]{android.R.id.text1}
         );
         spnLoai.setAdapter(simpleAdapter);
+        spnLoai.setSelection(vitri);
+
+
     }
 
-
     private void getDS() {
-        ArrayList<Khoan> list = khoanDAO.layDSKhoan(trangThai);
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getContext());
-        recyclerView.setLayoutManager(linearLayoutManager);
-        KhoanAdapter adapter = new KhoanAdapter(getContext(), list, khoanDAO,trangThai);
-        recyclerView.setAdapter(adapter);
+        list.clear();
+        list = khoanDAO.layDSKhoan(trangThai);
+        notifyDataSetChanged();
     }
 }

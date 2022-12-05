@@ -28,7 +28,7 @@ public class ThuChiFragment extends Fragment {
         View view = inflater.inflate(R.layout.frament_thuchi, container, false);
 
         Bundle bundle = getArguments();
-        trangthai = bundle.getInt("trangThai");
+        trangthai = bundle.getInt("trangthai");
         Toast.makeText(getContext(), "" + trangthai, Toast.LENGTH_LONG).show();
 
         tabLayout = view.findViewById(R.id.tabLayout);
@@ -43,11 +43,11 @@ public class ThuChiFragment extends Fragment {
                     if (trangthai == 0) {
                         tab.setText("Loại Thu");
                     } else {
-                        tab.setText("Khoản Thu");
+                        tab.setText("Loại Chi");
                     }
                 } else {
                     if (trangthai == 0) {
-                        tab.setText("Loại Chi");
+                        tab.setText("Khoản Thu");
                     } else {
                         tab.setText("Khoản Chi");
                     }

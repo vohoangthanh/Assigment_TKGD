@@ -7,14 +7,14 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recycleLoai"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent" />
 
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         app:layout_anchor="@id/recycleLoai"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_add"
-        android:layout_margin="10dp"
+        android:layout_margin="5dp"
         android:id="@+id/floatAdd"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"

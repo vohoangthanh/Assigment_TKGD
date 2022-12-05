@@ -21,16 +21,18 @@ public class ViewPager2Adapter extends FragmentStateAdapter {
     @NonNull
     @Override
     public Fragment createFragment(int position) {
+        Bundle bundle = new Bundle();
+        bundle.putInt("trangThai", trangThai);
+
         if (position == 0) {
             LoaiFrament loaiFrament = new LoaiFrament();
-            Bundle bundle = new Bundle();
-            bundle.putInt("trangThai", trangThai);
             loaiFrament.setArguments(bundle);
             return loaiFrament;
         }
 
-        return new Khoanfragment();
-
+        Khoanfragment khoanfragment = new Khoanfragment();
+        khoanfragment.setArguments(bundle);
+        return khoanfragment;
     }
 
     @Override
