@@ -9,13 +9,18 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
+import android.widget.Toast;
 
 
-
+import com.example.assigment_tkgd.fragments.LoaiFrament;
 import com.example.assigment_tkgd.fragments.Thongkefragment;
 
 import com.example.assigment_tkgd.fragments.ThuChiFragment;
@@ -27,6 +32,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private NavigationView navigationView;
     private LinearLayout linearLayout;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -36,6 +42,8 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawerLayout);
         linearLayout = findViewById(R.id.linearLayout);
         navigationView = findViewById(R.id.naviGationView);
+
+
 
         setSupportActionBar(toolbar);
         ActionBar actionBar = getSupportActionBar();
@@ -76,7 +84,11 @@ public class MainActivity extends AppCompatActivity {
                 return false;
             }
         });
+
+
     }
+
+
 
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {

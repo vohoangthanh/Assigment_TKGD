@@ -12,13 +12,52 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+
         <include layout="@layout/tool_bar"/>
+
+
+
 
         <LinearLayout
             android:id="@+id/linearLayout"
-            android:orientation="vertical"
+            android:orientation="horizontal"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent">
+
+
+
+            <TextView
+                android:layout_marginTop="430dp"
+                android:layout_width="0dp"
+                android:layout_weight="3"
+                android:layout_height="wrap_content"
+                android:text="Contach with us from:"
+                android:textSize="20sp"
+
+                />
+            <ImageView
+                android:layout_marginTop="430dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:src="@drawable/ggole"/>
+            <ImageView
+                android:layout_marginTop="430dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:src="@drawable/fb"/>
+            <ImageView
+                android:layout_marginTop="430dp"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="30dp"
+                android:src="@drawable/github"/>
+
+
+        </LinearLayout>
+
+
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView

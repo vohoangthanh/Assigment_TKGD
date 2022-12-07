@@ -1,18 +1,45 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
-    android:background="#AAFFE7"
+    android:layout_height="230dp"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#FFEFE0"
     android:orientation="vertical"
-    android:gravity="center"
-    >
 
-    <TextView
+    >
+    <androidx.cardview.widget.CardView
+        app:cardCornerRadius="500dp"
+        android:layout_marginStart="30dp"
+        android:layout_marginTop="35dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+    <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:background="@drawable/raidiusimg"
+        android:src="@drawable/acout" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+
+        android:layout_marginStart="30dp"
+        android:id="@+id/font"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/baloo_thambi"
+        android:text="Võ Hoàng Thanh"
         android:textColor="@color/black"
-        android:text="Hoàng Thanh"
-        android:textSize="20dp"
-        />
+        android:textSize="30dp" />
+
+    <TextView
+        android:layout_marginStart="60dp"
+        android:id="@+id/asm"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:text="Assigment final"
+
+        android:textColor="@color/black"
+        android:textSize="20dp" />
 
 </LinearLayout>

@@ -3,15 +3,34 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/drawable-v24/acount.xml" value="0.179" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/drawable-v24/ic_baseline_lock_24.xml" value="0.179" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.179" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/drawable-v24/raidius.xml" value="0.179" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/drawable/ic_add.xml" value="0.179" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/drawable/ic_baseline_account_box_24.xml" value="0.179" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/drawable/ic_chi.xml" value="0.179" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/drawable/ic_exit.xml" value="0.179" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/drawable/ic_gioithieu.xml" value="0.179" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/drawable/ic_launcher_background.xml" value="0.179" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/drawable/ic_thongke.xml" value="0.179" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/drawable/ic_thu.xml" value="0.179" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/drawable/ic_trangchu.xml" value="0.179" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/drawable/raidius_button.xml" value="0.179" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/drawable/raidiusimg.xml" value="0.179" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/layout/activity_login.xml" value="0.27447916666666666" />
         <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/layout/activity_main.xml" value="0.27447916666666666" />
         <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/layout/dialog_add_loai.xml" value="0.27447916666666666" />
         <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/layout/dialog_khoan.xml" value="0.2734375" />
         <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/layout/fragment_khoan.xml" value="0.27025641025641023" />
         <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/layout/fragment_loai.xml" value="0.1265625" />
         <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/layout/frament_thuchi.xml" value="0.27447916666666666" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/layout/header_layout.xml" value="0.27447916666666666" />
         <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/layout/item_khoan.xml" value="0.2734375" />
         <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/layout/item_loai.xml" value="0.27447916666666666" />
-        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/layout/thongke_frament.xml" value="0.27447916666666666" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/layout/thongke_frament.xml" value="0.27025641025641023" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/layout/tool_bar.xml" value="0.27447916666666666" />
+        <entry key="..\:/MOB202_THIETKEGIAODIEN/Assigment_TKGD/app/src/main/res/menu/menu_drawer.xml" value="0.27447916666666666" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Assigment_TKGD/app/src/main/res/drawable-v24/acount.xml" value="0.165" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Assigment_TKGD/app/src/main/res/drawable-v24/ic_baseline_lock_24.xml" value="0.165" />
         <entry key="..\:/Users/Admin/AndroidStudioProjects/Assigment_TKGD/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.165" />
